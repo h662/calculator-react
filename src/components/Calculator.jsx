@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import Button from "./Button";
 import Result from "./Result";
 import ButtonNumber from "./ButtonNumber";
 import ButtonOperator from "./ButtonOperator";
 import ButtonEnter from "./ButtonEnter";
+import ButtonDelete from "./ButtonDelete";
 
 const Calculator = () => {
   const [result, setResult] = useState("0");
@@ -54,7 +54,7 @@ const Calculator = () => {
           setTemp={setTemp}
         />
         <ButtonNumber name="0" result={result} setResult={setResult} />
-        <Button name="Del" />
+        <ButtonDelete name="Del" result={result} setResult={setResult} />
         <ButtonOperator
           name="/"
           result={result}
