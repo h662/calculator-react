@@ -1,7 +1,19 @@
 const Button = ({ name, onClickButton }) => {
   return (
     <button
-      className="bg-gray-200 w-10 h-10 rounded-md flex justify-center items-center shadow-sm"
+      className={`w-10 h-10 border-b-2 border-r-2 border-black rounded-full flex justify-center items-center  ${
+        name === "+"
+          ? "bg-red-500"
+          : name === "-"
+          ? "bg-blue-500"
+          : name === "*"
+          ? "bg-orange-500"
+          : name === "/"
+          ? "bg-pink-500"
+          : name === "Enter" || name === "Del"
+          ? "bg-gray-500 text-white"
+          : "bg-gray-50"
+      }`}
       onClick={onClickButton}
     >
       {name}
