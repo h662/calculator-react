@@ -13,7 +13,7 @@ const Calculator = () => {
 
   return (
     <div className="bg-gray-300  shadow-md">
-      <Result result={result} />
+      <Result result={result} temp={temp} />
       <div className="grid grid-cols-4 gap-2 m-4">
         <ButtonNumber name="1" result={result} setResult={setResult} />
         <ButtonNumber name="2" result={result} setResult={setResult} />
@@ -22,7 +22,9 @@ const Calculator = () => {
           name="+"
           result={result}
           setResult={setResult}
+          temp={temp}
           setTemp={setTemp}
+          operator={operator}
           setOperator={setOperator}
         />
         <ButtonNumber name="4" result={result} setResult={setResult} />
@@ -32,7 +34,9 @@ const Calculator = () => {
           name="-"
           result={result}
           setResult={setResult}
+          temp={temp}
           setTemp={setTemp}
+          operator={operator}
           setOperator={setOperator}
         />
         <ButtonNumber name="7" result={result} setResult={setResult} />
@@ -42,12 +46,15 @@ const Calculator = () => {
           name="*"
           result={result}
           setResult={setResult}
+          temp={temp}
           setTemp={setTemp}
+          operator={operator}
           setOperator={setOperator}
         />
         <ButtonEnter
           name="Enter"
           operator={operator}
+          setOperator={setOperator}
           result={result}
           setResult={setResult}
           temp={temp}
@@ -59,7 +66,9 @@ const Calculator = () => {
           name="/"
           result={result}
           setResult={setResult}
+          temp={temp}
           setTemp={setTemp}
+          operator={operator}
           setOperator={setOperator}
         />
       </div>

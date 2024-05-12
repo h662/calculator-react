@@ -1,7 +1,7 @@
-const Result = ({ result }) => {
+const Result = ({ result, temp }) => {
   return (
     <div className="bg-gray-50 px-6 h-12 flex items-center text-2xl">
-      {result}
+      {result ? result : temp ? temp : ""}
     </div>
   );
 };
