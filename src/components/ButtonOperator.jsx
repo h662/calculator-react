@@ -1,4 +1,4 @@
-import { operate } from "../lib";
+import { operate, setOperate } from "../lib";
 import Button from "./Button";
 
 const ButtonOperator = ({
@@ -11,20 +11,15 @@ const ButtonOperator = ({
   setOperator,
 }) => {
   const onClickButton = () => {
-    if (temp) {
-      if (result !== "0") {
-        operate({ operator, setOperator, result, setResult, temp, setTemp });
-      } else {
-        setOperator(name);
-      }
-    } else {
-      if (result !== "0") {
-        setTemp(result);
-        setResult("0");
-      }
-    }
-
-    setOperator(name);
+    setOperate({
+      operator,
+      setOperator,
+      result,
+      setResult,
+      temp,
+      setTemp,
+      name,
+    });
   };
 
   return <Button name={name} onClickButton={onClickButton} />;

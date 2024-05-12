@@ -32,7 +32,9 @@ const Calculator = () => {
         result={result}
         setResult={setResult}
         temp={temp}
+        setTemp={setTemp}
         operator={operator}
+        setOperator={setOperator}
       />
       <div className="grid grid-cols-4 gap-2 m-4">
         <ButtonNumber name="1" result={result} setResult={setResult} />

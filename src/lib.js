@@ -34,3 +34,28 @@ export const operate = ({
 
   setOperator("");
 };
+
+export const setOperate = ({
+  operator,
+  setOperator,
+  result,
+  setResult,
+  temp,
+  setTemp,
+  name,
+}) => {
+  if (temp) {
+    if (result !== "0") {
+      operate({ operator, setOperator, result, setResult, temp, setTemp });
+    } else {
+      setOperator(name);
+    }
+  } else {
+    if (result !== "0") {
+      setTemp(result);
+      setResult("0");
+    }
+  }
+
+  setOperator(name);
+};
