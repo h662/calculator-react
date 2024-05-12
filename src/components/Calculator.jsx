@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Result from "./Result";
 import ButtonNumber from "./ButtonNumber";
@@ -11,9 +11,22 @@ const Calculator = () => {
   const [temp, setTemp] = useState("");
   const [operator, setOperator] = useState("");
 
+  useEffect(() => {
+    if (result[0] === "0") {
+      if (result.length !== 1) {
+        setResult(result.substring(1));
+      }
+    }
+  }, [result]);
+
   return (
     <div className="bg-gray-300  shadow-md">
-      <Result result={result} temp={temp} operator={operator} />
+      <Result
+        result={result}
+        setResult={setResult}
+        temp={temp}
+        operator={operator}
+      />
       <div className="grid grid-cols-4 gap-2 m-4">
         <ButtonNumber name="1" result={result} setResult={setResult} />
         <ButtonNumber name="2" result={result} setResult={setResult} />
