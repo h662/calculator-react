@@ -13,7 +13,7 @@ const Calculator = () => {
 
   return (
     <div className="bg-gray-300  shadow-md">
-      <Result result={result} temp={temp} />
+      <Result result={result} temp={temp} operator={operator} />
       <div className="grid grid-cols-4 gap-2 m-4">
         <ButtonNumber name="1" result={result} setResult={setResult} />
         <ButtonNumber name="2" result={result} setResult={setResult} />

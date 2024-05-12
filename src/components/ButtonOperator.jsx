@@ -12,11 +12,18 @@ const ButtonOperator = ({
 }) => {
   const onClickButton = () => {
     if (temp) {
-      operate({ operator, setOperator, result, setResult, temp, setTemp });
+      if (result !== "0") {
+        operate({ operator, setOperator, result, setResult, temp, setTemp });
+      } else {
+        setOperator(name);
+      }
     } else {
-      setTemp(result);
-      setResult("0");
+      if (result !== "0") {
+        setTemp(result);
+        setResult("0");
+      }
     }
+
     setOperator(name);
   };
 

@@ -1,7 +1,12 @@
-const Result = ({ result, temp }) => {
+const Result = ({ result, temp, operator }) => {
   return (
-    <div className="bg-gray-50 px-6 h-12 flex items-center text-2xl">
-      {result ? result : temp ? temp : ""}
+    <div className="bg-gray-50 px-6 h-16 flex flex-col justify-center">
+      {temp && (
+        <div>
+          {temp} {operator}
+        </div>
+      )}
+      <div className="text-2xl">{result}</div>
     </div>
   );
 };
