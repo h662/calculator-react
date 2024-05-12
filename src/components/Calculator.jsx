@@ -5,11 +5,18 @@ import ButtonNumber from "./ButtonNumber";
 import ButtonOperator from "./ButtonOperator";
 import ButtonEnter from "./ButtonEnter";
 import ButtonDelete from "./ButtonDelete";
+import { operate } from "../lib";
 
 const Calculator = () => {
   const [result, setResult] = useState("0");
   const [temp, setTemp] = useState("");
   const [operator, setOperator] = useState("");
+
+  const onSubmitButtonEnter = (e) => {
+    e.preventDefault();
+
+    operate({ operator, setOperator, result, setResult, temp, setTemp });
+  };
 
   useEffect(() => {
     if (result[0] === "0") {
@@ -20,7 +27,7 @@ const Calculator = () => {
   }, [result]);
 
   return (
-    <div className="bg-gray-300  shadow-md">
+    <form className="bg-gray-300  shadow-md" onSubmit={onSubmitButtonEnter}>
       <Result
         result={result}
         setResult={setResult}
@@ -64,15 +71,7 @@ const Calculator = () => {
           operator={operator}
           setOperator={setOperator}
         />
-        <ButtonEnter
-          name="Enter"
-          operator={operator}
-          setOperator={setOperator}
-          result={result}
-          setResult={setResult}
-          temp={temp}
-          setTemp={setTemp}
-        />
+        <ButtonEnter name="Enter" />
         <ButtonNumber name="0" result={result} setResult={setResult} />
         <ButtonDelete name="Del" result={result} setResult={setResult} />
         <ButtonOperator
@@ -85,7 +84,7 @@ const Calculator = () => {
           setOperator={setOperator}
         />
       </div>
-    </div>
+    </form>
   );
 };
 

@@ -1,4 +1,4 @@
-const Button = ({ name, onClickButton }) => {
+const Button = ({ name, onClickButton, isSubmit }) => {
   return (
     <button
       className={`w-10 h-10 border-b-2 border-r-2 border-black rounded-full flex justify-center items-center  ${
@@ -15,6 +15,7 @@ const Button = ({ name, onClickButton }) => {
           : "bg-gray-50"
       }`}
       onClick={onClickButton}
+      type={isSubmit ? "submit" : "button"}
     >
       {name}
     </button>
